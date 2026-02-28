@@ -1,0 +1,147 @@
+html,body{
+    height: 100%;
+    margin: 0;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    background-color: #027fb1;
+    min-height: 100vh;
+}
+.navbar{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.logo img{
+    cursor: pointer;
+    max-height: 150px;
+    border: 1px solid none;
+    border-radius: 8px;
+}
+
+.buscador{
+    display: flex;
+    flex: 1;
+    padding: 0px 10px 0px 10px;
+}
+.buscador input{
+    flex: 1;
+    height: 45px;
+    border: 1px solid black;
+}
+
+.buscador button{
+    height: 50px;
+    cursor: pointer;
+}
+
+.carrito img{
+    padding: 10px;
+    margin-left: auto;
+    max-width: 70px;
+    max-height: 50px;
+    cursor: pointer;
+}
+
+.login button{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: auto;
+    padding: 10px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.imagenes{
+    display: flex;             
+    flex-wrap: wrap;            
+    gap: 20px;                   
+    justify-content: center;     
+    padding: 10px;
+}
+
+.imagenes img{
+    width: 100%;
+    height: 200px;
+    margin: 5px;
+    object-fit: contain;
+    cursor: pointer;
+    transition: transform 0.3s ease ;
+}
+
+.imagenes img:hover{
+    transform: scale(.80);
+
+}
+
+.imagenes div{
+    border: 1px solid black;
+    background-color: white;
+}
+
+.imagenes .titulo{
+    font-size: 16px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    width: 250px;
+    min-height: 50px;
+    padding: 5px;
+    text-align: center;
+}
+.imagenes .precio{
+    font-size: 30px;
+    width: 250px;
+    height: 25px;
+    padding: 10px 0;
+    text-align: center;
+}
+
+footer{
+    margin-top: auto;
+    width: 100%;
+    color: white;
+    background-color: black;
+}
+
+footer div{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+footer ul{
+    margin-bottom: 10px;
+    margin-right: 20px;
+    list-style: none;
+    padding: 0;
+}
+
+footer li a{
+    text-decoration: none;
+    color: white;
+}
+footer li a:hover{
+    text-decoration: none;
+    color: white;
+}
+
+@media (max-width: 768px){
+    .navbar{
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .buscador{
+        padding: 10px 0;
+    }
+
+    .imagenes form{
+        width: 90%;
+    }
+}
