@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/dashboard.css">
+    <title>NHK Haven - Dashboard</title>
+</head>
+
+<body>
+    <header>
+        <h1>NHK // DASHBOARD</h1>
+        <a href="/">← Volver al sitio</a>
+    </header>
+    <div id="root"><div class="loading">Cargando...</div></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.2/babel.min.js"></script>
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        function Dashboard() {
+            const [usersData, setUsersData] = useState(null);
+            const [productsData, setProductsData] = useState(null);
+
+            useEffect(() => {
+                fetch('/api/users').then(r => r.json()).then(setUsersData);
+                fetch('/api/products').then(r => r.json()).then(setProductsData);
+            }, []);
+
+            if (!usersData || !productsData) return <div className="loading">Cargando...</div>;
+
+            const lastProduct = productsData.products[productsData.products.length - 1];
+            const totalCategories = Object.keys(productsData.countByCategory).length;
+
+            return (
+                <div>
+                    <div className="grid-totals">
+                        <div className="card stat-card">
+                            <div className="label">Total Productos</div>
+                            <div className="value">{productsData.count}</div>
+                        </div>
+                        <div className="card stat-card">
+                            <div className="label">Total Usuarios</div>
+                            <div className="value value--success">{usersData.count}</div>
+                        </div>
+                        <div className="card stat-card">
+                            <div className="label">Total Categorías</div>
+                            <div className="value value--warning">{totalCategories}</div>
+                        </div>
+                    </div>
+
+                    <div className="grid-main">
+                        <div className="card">
+                            <h2>Productos por categoría</h2>
+                            {Object.entries(productsData.countByCategory).map(([cat, count]) => (
+                                <div className="category-row" key={cat}>
+                                    <span className="cat-name">{cat}</span>
+                                    <div className="bar-bg">
+                                        <div className="bar-fill" style={{width: `${(count/productsData.count)*100}%`}} />
+                                    </div>
+                                    <span className="cat-count">{count}</span>
+                                </div>
+                            ))}
+                        </div>
+
+                        <div className="card">
+                            <h2>Último producto agregado</h2>
+                            {lastProduct && (
+                                <div className="last-item">
+                                    <img src={`/${lastProduct.image}`} alt={lastProduct.name} onError={e => e.target.style.display='none'} />
+                                    <div className="item-name">{lastProduct.name}</div>
+                                    <div className="item-price">${Number(lastProduct.price).toLocaleString()}</div>
+                                    <div className="item-desc">{lastProduct.description}</div>
+                                    {lastProduct.categories?.[0] && <span className="item-cat">{lastProduct.categories[0]}</span>}
+                                </div>
+                            )}
+                        </div>
+
+                        <div className="card card--full">
+                            <h2>Listado de productos</h2>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Nombre</th>
+                                        <th>Descripción</th>
+                                        <th>Categoría</th>
+                                        <th>Precio</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {productsData.products.map(p => (
+                                        <tr key={p.id}>
+                                            <td className="td-muted">{p.id}</td>
+                                            <td>{p.name}</td>
+                                            <td className="td-muted">{p.description}</td>
+                                            <td>{p.categories?.[0] && <span className="cat-badge">{p.categories[0]}</span>}</td>
+                                            <td className="price-cell">${Number(p.price).toLocaleString()}</td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        ReactDOM.render(<Dashboard />, document.getElementById('root'));
+    </script>
+</body>
+</html>

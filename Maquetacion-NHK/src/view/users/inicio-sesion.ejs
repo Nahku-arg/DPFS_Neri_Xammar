@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<%- include('../partials/head/head', {styles: ['/styles/inicio-sesion.css']}) %>
+<body>
+
+    <%- include('../partials/header/header') %>
+        <div class="formulario">
+            <h2>Iniciar sesión</h2>
+            <% if (typeof errors !== 'undefined') { %>
+                <ul style="color:red;">
+                    <% errors.forEach(error => { %>
+                    <li><%= error.msg %></li>
+                    <% }) %>
+                </ul>
+            <% } %>
+            <form action="/users/inicio-sesion" method="POST">
+                <div class="email">
+                    <input type="email" name="email" placeholder="Ingrese su email" required>
+                </div>
+                <div class="password">
+                    <input type="password" name="password" placeholder="Ingrese su contraseña" required>
+                </div>
+                <input  class="iniciar" type="submit" value="Ingresar">
+                <div class="registro">
+                    <a href="#">¿Olvidaste tu contraseña?</a>
+                </div>
+                <div class="registro">
+                    <p>¿Todavía no tienes una cuenta?</p>
+                    <a href="/users/registro">Registrarse</a>
+                </div>
+            </form>
+        </div>
+    <%- include('../partials/footer/footer') %>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.querySelector('form[action="/users/inicio-sesion"]');
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const errors = [];
+        const email = document.querySelector('[name="email"]').value.trim();
+        const password = document.querySelector('[name="password"]').value;
+
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errors.push('El email no es válido');
+        if (password.length === 0) errors.push('La contraseña es obligatoria');
+
+        if (errors.length > 0) {
+            let errorDiv = document.querySelector('.front-errors');
+            if (!errorDiv) {
+                errorDiv = document.createElement('ul');
+                errorDiv.className = 'front-errors';
+                errorDiv.style.color = 'red';
+                form.before(errorDiv);
+            }
+            errorDiv.innerHTML = errors.map(err => `<li>${err}</li>`).join('');
+        } else {
+            form.submit();
+        }
+    });
+});
+</script>
+</body>
+</html>

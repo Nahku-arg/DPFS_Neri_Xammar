@@ -1,0 +1,61 @@
+[{
+  "id": 1,
+  "name": "leo rhoncus",
+  "description": "Versatile canned black beans, ready to add to any dish.",
+  "category": "Nb",
+  "price": 1.29
+}, {
+  "id": 2,
+  "name": "proin interdum",
+  "description": "Accurate stopwatch for timing events and workouts.",
+  "category": "Procesador",
+  "price": 12.99
+}, {
+  "id": 3,
+  "name": "facilisi",
+  "description": "Golden crispy chicken tenders coated with honey mustard flavor.",
+  "category": "Procesador",
+  "price": 7.99
+}, {
+  "id": 4,
+  "name": "justo pellentesque",
+  "description": "Durable and spacious backpack for travel and school.",
+  "category": "Nb",
+  "price": 49.99
+}, {
+  "id": 5,
+  "name": "augue",
+  "description": "Compact, waterproof blanket for picnics and events.",
+  "category": "Procesador",
+  "price": 24.99
+}, {
+  "id": 6,
+  "name": "vestibulum proin",
+  "description": "Soft and chewy cookies made with creamy peanut butter.",
+  "category": "Monitor",
+  "price": 3.49
+}, {
+  "id": 7,
+  "name": "cubilia",
+  "description": "Everything you need for maintaining a healthy beard.",
+  "category": "Placa",
+  "price": 34.99
+}, {
+  "id": 8,
+  "name": "rutrum nulla",
+  "description": "Instant oatmeal flavored with cranberries and orange zest for breakfast.",
+  "category": "Monitor",
+  "price": 2.49
+}, {
+  "id": 9,
+  "name": "mi integer",
+  "description": "Compact air fryer for healthier cooking.",
+  "category": "Nb",
+  "price": 79.99
+}, {
+  "id": 10,
+  "name": "diam",
+  "description": "A lightweight tank dress, ideal for warm weather outings.",
+  "category": "Placa",
+  "price": 39.99
+}]

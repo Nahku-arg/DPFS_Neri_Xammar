@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<%- include('../partials/head/head', {styles: ['/styles/crear-producto.css']}) %>
+<body>
+    <form action="/products/crear" method="POST" enctype="multipart/form-data">
+        <h2>Crear nuevo producto</h2>
+        <% if (typeof errors !== 'undefined') { %>
+                <ul style="color:red;">
+                    <% errors.forEach(error => { %>
+                    <li><%= error.msg %></li>
+                    <% }) %>
+                </ul>
+            <% } %>
+        <label>
+            Nombre del producto
+            <input type="text" name="name">
+        </label>
+
+        <label>
+            Descripción
+            <textarea name="description" placeholder="Descripción del producto"></textarea>
+        </label>
+
+        <label>
+            Imagen
+            <input type="file" name="image">
+        </label>
+
+        <label>
+            Categoría
+            <select name="categoryId">
+                <% categorias.forEach(cat => { %>
+        <option value="<%= cat.id %>"><%= cat.name %></option>
+    <% }) %>
+</select>
+        </label>
+
+        <label>
+            Precio
+            <input type="number" name="price" placeholder="0.00">
+        </label>
+
+        <button type="submit">Crear producto</button>
+        <button><a href="/products/editar">Editar Producto</a></button>
+    </form>
+
+<%- include('../partials/footer/footer') %>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.querySelector('form[action="/products/crear"]');
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const errors = [];
+        const name = document.querySelector('[name="name"]').value.trim();
+        const description = document.querySelector('[name="description"]').value.trim();
+        const image = document.querySelector('[name="image"]').files[0];
+
+        if (name.length < 5) errors.push('El nombre debe tener al menos 5 caracteres');
+        if (description.length < 20) errors.push('La descripción debe tener al menos 20 caracteres');
+        if (image) {
+            const allowed = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'];
+            if (!allowed.includes(image.type)) errors.push('La imagen debe ser JPG, JPEG, PNG o GIF');
+        }
+
+        if (errors.length > 0) {
+            let errorDiv = document.querySelector('.front-errors');
+            if (!errorDiv) {
+                errorDiv = document.createElement('ul');
+                errorDiv.className = 'front-errors';
+                errorDiv.style.color = 'red';
+                form.before(errorDiv);
+            }
+            errorDiv.innerHTML = errors.map(err => `<li>${err}</li>`).join('');
+        } else {
+            form.submit();
+        }
+    });
+});
+</script>
+</body>
+</html>

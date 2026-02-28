@@ -1,0 +1,97 @@
+html,body{
+    height: 100%;
+    margin: 0;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    background-color: #027fb1;
+    min-height: 100vh;
+}
+
+form {
+    max-width: 700px;
+    margin: 40px auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+}
+
+input, textarea, select {
+    padding: 10px;
+    font-size: 16px;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+img {
+    max-width: 200px;
+    margin: 10px 0;
+}
+
+button {
+    margin-top: 20px;
+    padding: 12px;
+    background-color: #027fb1;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.5s all ease;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+footer{
+    margin-top: auto;
+    width: 100%;
+    color: white;
+    background-color: black;
+}
+
+footer div{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+footer ul{
+    margin-bottom: 10px;
+    margin-right: 20px;
+    list-style: none;
+    padding: 0;
+}
+
+footer li a{
+    text-decoration: none;
+    color: white;
+}
+footer li a:hover{
+    text-decoration: none;
+    color: white;
+}
+

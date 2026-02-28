@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('../partials/head/head', {styles: ['/styles/carrito.css']}) %>
+<body>
+
+    <%- include('../partials/header/header') %>
+    
+    <div class="imagenes">
+        <div id="contenedor-carrito"></div>
+        <div class="total">
+            <p>Total: <span class="total-precio"></span></p>
+        </div>
+    </div>
+    <div class="bt-comprar">
+        <button type="button" class="comprar" id="btn-finalizar">Comprar</button>
+    </div>
+    <script>
+        const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+        const contenedor = document.getElementById('contenedor-carrito');
+        function renderCarrito() {
+            contenedor.innerHTML = '';
+            carrito.forEach(p => {
+                contenedor.innerHTML += `
+                    <div class="producto" data-id="${p.id}">
+                        <img src="/${p.imagen}" alt="${p.nombre}">
+                        <p class="titulo">${p.nombre}</p>
+                        <p class="precio">$${Number(p.precio).toLocaleString()}</p>
+                        <div class="contador">
+                            <button type="button" class="modificar"> - </button>
+                            <span>${p.cantidad}</span>
+                            <button type="button" class="modificar"> + </button>
+                            <button type="button" class="eliminar">Eliminar</button>
+                        </div>
+                    </div>
+                `;
+            });
+            asignarEventos();
+            actualizarTotal();
+        }
+        function actualizarTotal() {
+            const total = carrito.reduce((acc, p) => acc + p.precio * p.cantidad, 0);
+            document.querySelector('.total-precio').textContent =
+                '$' + total.toLocaleString('es-AR');
+        }
+        function guardar() {
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+        }
+        function asignarEventos() {
+            document.querySelectorAll('.producto').forEach(div => {
+                const id = div.dataset.id;
+                const producto = carrito.find(p => p.id === id);
+                const span = div.querySelector('span');
+                const [btnMenos, btnMas] = div.querySelectorAll('.modificar');
+                const btnEliminar = div.querySelector('.eliminar');
+                btnMas.addEventListener('click', () => {
+                    producto.cantidad++;
+                    span.textContent = producto.cantidad;
+                    guardar();
+                    actualizarTotal();
+                });
+                btnMenos.addEventListener('click', () => {
+                    if (producto.cantidad > 1) {
+                        producto.cantidad--;
+                        span.textContent = producto.cantidad;
+                        guardar();
+                        actualizarTotal();
+                    }
+                });
+                btnEliminar.addEventListener('click', () => {
+                    const idx = carrito.findIndex(p => p.id === id);
+                    carrito.splice(idx, 1);
+                    guardar();
+                    renderCarrito();
+                });
+            });
+        }
+        document.getElementById('btn-finalizar').addEventListener('click', () => {
+        if (carrito.length === 0) {
+            alert('El carrito está vacío');
+            return;
+        }
+        localStorage.removeItem('carrito');
+        alert('¡Compra realizada con éxito! Gracias por tu compra 🎉');
+        carrito.length = 0;
+        renderCarrito();
+        });
+        renderCarrito();
+    </script>
+
+    <%- include('../partials/footer/footer') %>
+    
+</body>
+</html>

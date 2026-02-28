@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('../partials/head/head', {styles: ['/styles/registro.css']}) %>
+
+<body>
+
+    <%- include('../partials/header/header') %>
+        <div class="formulario">
+            <h2>Crear cuenta</h2>
+            <% if (typeof errors !== 'undefined') { %>
+                <ul style="color:red;">
+                    <% errors.forEach(error => { %>
+                    <li><%= error.msg %></li>
+                    <% }) %>
+                </ul>
+            <% } %>
+            <form action="/users/registro" method="POST" enctype="multipart/form-data">
+                <div class="name">
+                    <input type="text" name="name" placeholder="Ingrese su nombre" required>
+                </div>
+                <div class="lastname">
+                    <input type="text" name="lastname" placeholder="Ingrese su apellido" required>
+                </div>
+                <div class="email">
+                    <input type="email" name="email" placeholder="Ingrese su email" required>
+                </div>
+                <div class="password">
+                    <input type="password" name="password" placeholder="Ingrese su contraseña">
+                </div>
+                <div class="password">
+                    <input type="password" name="password2" placeholder="Repita su contraseña">
+                </div>
+                <div class="avatar">
+                    <input type="file" name="avatar">
+                </div>
+                <input  class="crear" type="submit" value="Registrarse">
+                <div class="iniciar">
+                    <p>¿Ya tienes una cuenta?</p>
+                    <a href="/users/inicio-sesion">Iniciar sesión</a>
+                </div>
+            </form>
+        </div>
+    <%- include('../partials/footer/footer') %>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.querySelector('form[action="/users/registro"]');
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const errors = [];
+        const name = document.querySelector('[name="name"]').value.trim();
+        const lastname = document.querySelector('[name="lastname"]').value.trim();
+        const email = document.querySelector('[name="email"]').value.trim();
+        const password = document.querySelector('[name="password"]').value;
+        const password2 = document.querySelector('[name="password2"]').value;
+        const avatar = document.querySelector('[name="avatar"]').files[0];
+
+        if (name.length < 2) errors.push('El nombre debe tener al menos 2 caracteres');
+        if (lastname.length < 2) errors.push('El apellido debe tener al menos 2 caracteres');
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errors.push('El email no es válido');
+        if (password.length < 8) errors.push('La contraseña debe tener al menos 8 caracteres');
+        if (password !== password2) errors.push('Las contraseñas no coinciden');
+        if (avatar) {
+            const allowed = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'];
+            if (!allowed.includes(avatar.type)) errors.push('La imagen debe ser JPG, JPEG, PNG o GIF');
+        }
+
+        if (errors.length > 0) {
+                let errorDiv = document.querySelector('.front-errors');
+            if (!errorDiv) {
+                errorDiv = document.createElement('ul');
+                errorDiv.className = 'front-errors';
+                errorDiv.style.color = 'red';
+                form.before(errorDiv);
+            }
+            errorDiv.innerHTML = errors.map(err => `<li>${err}</li>`).join('');
+        } else {
+            form.submit();
+        }
+    });
+});
+</script>
+
+</body>
+</html>

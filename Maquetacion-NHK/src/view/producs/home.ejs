@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<%- include('../partials/head/head', {styles: ['/styles/home.css']}) %>
+
+<body>
+    <%- include('../partials/header/header') %>
+    
+    <div class="imagenes">
+        <% productos.forEach(producto => { %>
+        <div>
+            <a href="/products/articulo/<%= producto.id %>">
+                <img src="/<%= producto.image %>" alt="<%= producto.name %>">
+            </a>
+            <p class="titulo"><%= producto.name %></p>
+            <p class="precio">$<%= Number(producto.price).toLocaleString() %></p>
+            <% if (userLogged && userLogged.type === 'Admin') { %>
+                <a  class="editar" href="/products/editar/<%= producto.id %>">Editar</a>
+                <a  class="editar" href="/products/eliminar/<%= producto.id %>">Eliminar</a>
+            <% } %>
+        </div>
+        <% }) %>
+    </div>
+
+    <% if (userLogged && userLogged.type === 'Admin') { %>
+        <button class="adm-btn"><a href="/products/crear">Crear producto</a></button>
+    <% } %>
+
+    <%- include('../partials/footer/footer') %>
+</body>
+</html>

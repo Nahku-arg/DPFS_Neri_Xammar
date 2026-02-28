@@ -1,0 +1,25 @@
+<header class="navbar">
+    <div class="logo">
+        <a href="/">
+            <img src="/logo.jpg" alt="logo">
+        </a>
+    </div>
+    <form class="buscador" action="/products/buscar" method="GET">
+    <input type="text" name="q" placeholder="Buscar">
+    <button>Buscar</button>
+    </form>
+    <div class="carrito">
+        <a href="/users/carrito">
+            <img src="/carrito.jpg" alt="Carrito">
+        </a>
+    </div>
+    <div class="login">
+    <% if (userLogged) { %>
+    <img src="/avatar/<%= userLogged.avatar %>" alt="avatar" style="width:35px; height:35px; border-radius:50%; object-fit:cover;">
+    <span style="color:white; padding:10px;">Hola, <%= userLogged.firstName %>!</span>
+    <a href="/users/logout"><button>Cerrar sesión</button></a>
+    <% } else { %>
+        <a href="/users/inicio-sesion"><button>Iniciar sesión</button></a>
+    <% } %>
+</div>
+</header>

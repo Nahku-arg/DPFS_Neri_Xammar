@@ -1,0 +1,109 @@
+[
+  {
+    "id": 1,
+    "firstName": "gravida",
+    "lastName": "interdum",
+    "email": "opasmore0@harvard.edu",
+    "password": "eD6\\&9nK#DmA.Vq",
+    "type": "Admin"
+  },
+  {
+    "id": 2,
+    "firstName": "vel",
+    "lastName": "vestibulum",
+    "email": "noppie1@jigsy.com",
+    "password": "gL2/h`}V",
+    "type": "Admin"
+  },
+  {
+    "id": 3,
+    "firstName": "pulvinar",
+    "lastName": "leo",
+    "email": "jhowsley2@japanpost.jp",
+    "password": "gQ4?<xwn8Sl{8WKR",
+    "type": "Customer"
+  },
+  {
+    "id": 4,
+    "firstName": "leo",
+    "lastName": "fermentum",
+    "email": "hdove3@flavors.me",
+    "password": "dM3<pFUXJhF",
+    "type": "Customer"
+  },
+  {
+    "id": 5,
+    "firstName": "porttitor",
+    "lastName": "nulla",
+    "email": "dwinks4@sun.com",
+    "password": "bD9~>h_I",
+    "type": "Customer"
+  },
+  {
+    "id": 6,
+    "firstName": "tristique",
+    "lastName": "massa",
+    "email": "bhackwell5@jalbum.net",
+    "password": "eF6%I<L=rPOOXB",
+    "type": "Admin"
+  },
+  {
+    "id": 7,
+    "firstName": "neque",
+    "lastName": "risus",
+    "email": "rnorthgraves6@fastcompany.com",
+    "password": "rI1?6~g`jR'`",
+    "type": "Admin"
+  },
+  {
+    "id": 8,
+    "firstName": "turpis",
+    "lastName": "a",
+    "email": "bnitto7@wikispaces.com",
+    "password": "eE2<aR&}UB|L}>?U",
+    "type": "Customer"
+  },
+  {
+    "id": 9,
+    "firstName": "nunc",
+    "lastName": "viverra",
+    "email": "wmorad8@umich.edu",
+    "password": "nA0\"6SaZ0.0`F'",
+    "type": "Admin"
+  },
+  {
+    "id": 10,
+    "firstName": "tincidunt",
+    "lastName": "ligula",
+    "email": "msnozzwell9@goo.ne.jp",
+    "password": "rJ6@IfK!p>uUp'GH",
+    "type": "Admin"
+  },
+  {
+    "id": 1771771860173,
+    "firstName": "ffgwrgg",
+    "lastName": "gregerg",
+    "email": "graegrarg@gmail.com",
+    "password": "$2b$10$vH8IBgFijSKiSGtTErhxJeHGhgSbneufOViGmDIoi7cCJcupGznsW",
+    "avatar": "default-avatar.png",
+    "type": "Customer"
+  },
+  {
+    "id": 1771772426156,
+    "firstName": "gargg",
+    "lastName": "agafga",
+    "email": "agfafgagf@gmail.com",
+    "password": "$2b$10$H3lyuS5p1pMDQcXyX0ACluFfhXlanuhOk62atd9lSESdDeVLveAZ2",
+    "avatar": "default-avatar.png",
+    "type": "Customer"
+  },
+  {
+    "id": 1771774567176,
+    "firstName": "neri",
+    "lastName": "xammar",
+    "email": "ppp@gmail.com",
+    "password": "$2b$10$TRnywB9eVVzsKnGSrVf0LuWwwLobMZt1jclKc3cSx/kf4nmA0/5Aq",
+    "avatar": "default-avatar.png",
+    "type": "Customer"
+  }
+]

@@ -1,0 +1,213 @@
+html,body{
+    height: 100%;
+    margin: 0;
+}
+
+
+body{
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    background-color: #027fb1;
+    min-height: 100vh;
+}
+
+.navbar{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.logo img{
+    cursor: pointer;
+    max-height: 150px;
+    border: 1px solid none;
+    border-radius: 8px;
+}
+
+.buscador{
+    display: flex;
+    flex: 1;
+    padding: 0px 10px 0px 10px;
+}
+.buscador input{
+    flex: 1;
+    height: 45px;
+    border: 1px solid black;
+}
+
+.buscador button{
+    height: 50px;
+    cursor: pointer;
+}
+
+.login button{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: auto;
+    padding: 10px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.imagenes{
+    flex: 1;
+    margin: 20px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid black;
+    background-color: white;
+}
+
+
+.contador{
+    font-size: 25px;
+}
+
+.modificar{
+    background-color: #027fb1;
+    height: 30px;
+    cursor: pointer;
+    transition: .5s all ease;
+}
+
+.modificar:hover{
+    background-color: #0498d3;
+}
+
+.eliminar{
+    cursor: pointer;
+    font-size: 20px;
+    background-color: red;
+    color: #fff;
+    height: 30px;
+    border-radius: 8px;
+    transition: .5s all ease;
+}
+
+.eliminar:hover{
+    background-color: rgb(245, 81, 81);
+    color: black;
+}
+
+.producto{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 15px;
+    border-bottom: 1px solid black;
+}
+
+.imagenes img{
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    object-fit: contain;
+}
+
+
+.bt-comprar{
+    display: flex;
+    justify-content: center;
+}
+
+.comprar{
+    margin: 10px;
+    font-size: 20px;
+    width: 100%;
+    max-width: 500px;
+    height: 50px;
+    background-color: red;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .5s ease all;
+}
+
+.total{
+    font-size: 30px;
+    text-align: center;
+    padding: 15px;
+    border-top: 1px solid black;
+}
+
+.comprar:hover{
+    background-color: rgb(177, 0, 0);
+    color: white;
+}
+
+
+.imagenes .titulo{
+    font-size: 16px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    max-width: 200px;
+    height: 25px;
+    padding: 5px;
+    text-align: center;
+}
+.imagenes .precio{
+    font-size: 30px;
+    width: auto;
+    height: 25px;
+    padding-top: 10px;
+    text-align: center;
+}
+
+.carrito{
+    display: none;
+}
+
+footer{
+    width: 100%;
+    color: white;
+    background-color: black;
+}
+
+footer div{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+footer ul{
+    margin-bottom: 10px;
+    margin-right: 20px;
+    list-style: none;
+    padding: 0;
+}
+
+footer li a{
+    text-decoration: none;
+    color: white;
+}
+footer li a:hover{
+    text-decoration: none;
+    color: white;
+}
+
+@media (max-width: 768px){
+
+    .navbar{
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .buscador{
+        padding: 10px 0;
+    }
+    .producto{
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .contador{
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .imagenes img{
+        max-width: 150px;
+    }
+}

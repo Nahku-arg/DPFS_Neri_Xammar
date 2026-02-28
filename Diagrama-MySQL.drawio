@@ -1,0 +1,41 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 Edg/145.0.0.0" version="29.6.0">
+  <diagram name="Página-1" id="_zJuIv5t-1NKtu1s-q94">
+    <mxGraphModel dx="695" dy="831" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="xO2sYLgdYBH-C9YKwq-9-3" edge="1" parent="1" source="gCQehsLle7oAEdOQmoYy-2" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;" target="gCQehsLle7oAEdOQmoYy-5">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="360" y="270" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gCQehsLle7oAEdOQmoYy-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Id: INT&lt;div&gt;nombre&lt;/div&gt;&lt;div&gt;aprellido&lt;/div&gt;&lt;div&gt;correo&lt;/div&gt;&lt;div&gt;contraseña&lt;/div&gt;" vertex="1">
+          <mxGeometry height="290" width="240" x="80" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="gCQehsLle7oAEdOQmoYy-5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="ID:INT&lt;div&gt;titulo&lt;/div&gt;&lt;div&gt;descipcion&lt;/div&gt;&lt;div&gt;precio&lt;/div&gt;" vertex="1">
+          <mxGeometry height="260" width="210" x="470" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="gCQehsLle7oAEdOQmoYy-6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="usuarios" vertex="1">
+          <mxGeometry height="60" width="120" x="130" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="gCQehsLle7oAEdOQmoYy-7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Productos" vertex="1">
+          <mxGeometry height="60" width="120" x="525" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="xO2sYLgdYBH-C9YKwq-9-2" edge="1" parent="1" style="shape=link;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;" value="">
+          <mxGeometry relative="1" width="100" as="geometry">
+            <mxPoint x="310" y="430" as="sourcePoint" />
+            <mxPoint x="410" y="430" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xO2sYLgdYBH-C9YKwq-9-4" edge="1" parent="1" style="shape=link;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;" value="">
+          <mxGeometry relative="1" width="100" as="geometry">
+            <mxPoint x="310" y="430" as="sourcePoint" />
+            <mxPoint x="410" y="430" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
